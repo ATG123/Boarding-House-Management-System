@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+  <title>Bootstrap 3 Contact form with Validation</title>
+  <script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
+<link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
+<link rel="stylesheet" href="css/style.css">
+<script type="text/javascript">
+function formvalidator()
+{
+var letters= /^[a-zA-Z]+$/;
+  if(document.form1.first_name.value == "" ||document.form1.first_name.value == null)
+   {
+      alert("*PLZ ENTER FIRST NAME");
+      document.form1.first_name.focus();
+      return false;
+   }
+ else
+ {
+  if(!(document.form1.first_name.value.match(letters)))
+   { 
+       alert("*Only Alphabets Are Allowed");
+       document.form1.first_name.focus();
+       return false;
+   }
+ }
+
+ if(document.form1.last_name.value == "" ||document.form1.last_name.value == null)
+   {
+      alert("*PLZ ENTER LAST NAME");
+      document.form1.last_name.focus();
+      return false;
+   }
+ else
+ {
+  if(!(document.form1.last_name.value.match(letters)))
+   {
+      alert("*Only Alphabets Are Allowed In Last Name");
+      document.form1.last_name.focus();
+      return false;
+   }
+ }
+
+var mn = document.forms["form1"]["sphone"].value;
+if(mn == "" || mn == null || isNaN(mn) ||
+mn.length < 10 || mn.length >10 )
+{
+alert("*PLZ Enter Valid Mobile Number");
+document.form1.sphone.focus() ;
+return false;
+} 
+
+if(document.form1.address.value == "" ||document.form1.address.value == null)
+   {
+      alert("*PLZ ENTER ADDRESS NAME");
+      document.form1.address.focus();
+      return false;
+   }
+
+if(document.form1.city.value == "" ||document.form1.city.value == null)
+   {
+      alert("*PLZ ENTER CITY NAME");
+      document.form1.city.focus();
+      return false;
+   }
+
+if(document.form1.state.value == "" ||document.form1.state.value == null)
+   {
+      alert("*PLZ ENTER STATE NAME");
+      document.form1.state.focus();
+      return false;
+   }
+
+if(document.form1.sal.value == "" ||document.form1.sal.value == null)
+   {
+      alert("*PLZ ENTER THE SALARY");
+      document.form1.sal.focus();
+      return false;
+   }
+else
+{
+ if(document.form1.sal.value<=0)
+   {
+      alert("*Salary Must Be Positive AND Greater Then Zero");
+      document.form1.sal.focus();
+      return false;
+   }
+}
+return(true);
+}
+</script>
+
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #D5DBDB;
+}
+li.dropdown {
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #F4ECF7;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover {background-color: #CB4335;
+color:white;}
+.dropdown:hover .dropdown-content 
+{
+    display: block;
+}
+
+body
+{
+font-size:18px;
+font-family:Garamond;
+background-image: url('hostel6.jpg');
+background-size: cover;
+}
+
+container {
+    border-radius: 5px;
+    background-color: #D5DBDB;
+    opacity:0.85;
+   color:black;
+    padding: 20px;  
+    width: 150px;
+    border: 20px red;
+    <!--margin-left: 400px;-->
+    <!--margin-top: 75px;-->
+
+    border: 2px solid #FCF3CF;
+
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    font-family:Garamond;
+}
+</style>
+</head>
+<body>
+<a href="transfercontrolaccroles.html" style="float:right;color:white"><h3>LOG OUT</h3></a>
+<br>
+
+<ul>
+<li class="dropdown">
+    <b><a href="#stud" class="dropbtn">STUDENT DETAILS</a>
+    <div class="dropdown-content"></b>
+      <b><a href="viewbasicstudinfo.php">VIEW BASIC STUDENT INFO</a></b>
+      <b><a href="completestudinfo.php">VIEW COMPLETE STUDENT INFO</a></b>
+      <b><a href="viewonedaynightout.php">STUDENT ON NIGHTOUT FOR ONE DAY</a></b>
+      <b><a href="viewmorethanonedaynightout.php">STUDENT ON NIGHTOUT FOR MORE THAN ONE DAY</a></b>
+    </div>
+  </li>
+
+
+   <li class="dropdown">
+    <b><a href="#stud" class="dropbtn">STAFF DETAILS</a></b>
+    <div class="dropdown-content">
+      <b><a href="fourthpg.html">FILL BASIC STAFF INFORMATION</a></b>
+      <b><a href="viewbasicstaffinfo.php">VIEW BASIC STAFF INFORMATION</a></b>
+      <b><a href="acttrytosearch.php">EDIT STAFF INFO</a></b>
+      <b><a href="#">STAFF LEAVE RECORD</a></b>
+    </div>
+  </li>
+
+ <li class="dropdown">
+    <b><a href="#staff" class="dropbtn">NOTFICATIONS</a></b>
+    <div class="dropdown-content">
+      <b><a href="dispprefbasic_enquiry.php">NEW ENQURIES</a></b>
+      <b><a href="shownewcomplaints.php">COMPLAINTS</a></b>
+      <b><a href="viewfeedback.php">FEEDBACK STATUS</a></b>
+    </div>
+  </li>
+
+ <li class="dropdown">
+    <b><a href="#staff" class="dropbtn">FACILITIES</a></b>
+    <div class="dropdown-content">
+      <b><a href="wifistatus.php">WI-FI</a></b>
+      <b><a href="laundrystatus.php">LAUNDRY</a></b>
+      <b><a href="messstatus.php">MESS</a></b>
+    </div>
+  </li>
+
+<li class="dropdown">
+    <b><a href="#staff" class="dropbtn">STATUS OF ROOMS</a></b>
+    <div class="dropdown-content">
+      <b><a href="showacstatustoadmin.html">AC ROOMS</a></b>
+      <b><a href="shownonacstatustoadmin.html">NON AC ROOMS</a></b>
+    </div>
+  </li>
+
+<li class="dropdown">
+    <b><a href="#staff" class="dropbtn">OTHER INFO</a></b>
+    <div class="dropdown-content">
+      <b><a href="netprofit.php">NET PROFIT</a></b>
+      <b><a href="hitratio.php">HIT RATIO</a></b>
+    </div>
+  </li>
+</ul>
+<div class="container" style="width:45%;margin-left: 400px;margin-top: 75px;border-radius: 15px; border:3;opacity:0.85;">
+
+<form name="form1" onsubmit="return formvalidator();" class="well form-horizontal" action="fourthfourth.php" method="post"  id="contact_form">
+<fieldset>
+
+<!-- Form Name -->
+<legend><h2><b>Basic Info Of Hostel Staff!</b></h2></legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label">AADHAR NUMBER</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  name="adhar" placeholder="Adhar Number" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label">FIRST NAME</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" >LAST NAME</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="last_name" placeholder="Last Name" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label">PHONE</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+  <input name="sphone" placeholder="(+91)1234567891" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group"> 
+  <label class="col-md-4 control-label">STATE</label>
+    <div class="col-md-4 selectContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+    <select name="state" class="form-control selectpicker" >
+      <option value=" " >Please select your state</option>
+      <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+<option value="Andhra Pradesh">Andhra Pradesh</option>
+<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+<option value="Assam">Assam</option>
+<option value="Bihar">Bihar</option>
+<option value="Chandigarh">Chandigarh</option>
+<option value="Chhattisgarh">Chhattisgarh</option>
+<option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+<option value="Daman and Diu">Daman and Diu</option>
+<option value="Delhi">Delhi</option>
+<option value="Goa">Goa</option>
+<option value="Gujarat">Gujarat</option>
+<option value="Haryana">Haryana</option>
+<option value="Himachal Pradesh">Himachal Pradesh</option>
+<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+<option value="Jharkhand">Jharkhand</option>
+<option value="Karnataka">Karnataka</option>
+<option value="Kerala">Kerala</option>
+<option value="Lakshadweep">Lakshadweep</option>
+<option value="Madhya Pradesh">Madhya Pradesh</option>
+<option value="Maharashtra" selected>Maharashtra</option>
+<option value="Manipur">Manipur</option>
+<option value="Meghalaya">Meghalaya</option>
+<option value="Mizoram">Mizoram</option>
+<option value="Nagaland">Nagaland</option>
+<option value="Orissa">Orissa</option>
+<option value="Pondicherry">Pondicherry</option>
+<option value="Punjab">Punjab</option>
+<option value="Rajasthan">Rajasthan</option>
+<option value="Sikkim">Sikkim</option>
+<option value="Tamil Nadu">Tamil Nadu</option>
+<option value="Tripura">Tripura</option>
+<option value="Uttaranchal">Uttaranchal</option>
+<option value="Uttar Pradesh">Uttar Pradesh</option>
+<option value="West Bengal">West Bengal</option>
+    </select>
+  </div>
+</div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label">CITY</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  <input name="city" placeholder="city" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label">ADDRESS</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  <input name="address" placeholder="Address" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group"> 
+  <label class="col-md-4 control-label">GENDER</label>
+    <div class="col-md-4 selectContainer">
+    <div class="input-group">
+    <select name="gen" class="form-control selectpicker" >
+      <option value="female">FEMALE</option>
+<option value="male" selected>MALE</option>
+</select>
+  </div>
+</div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" >DESIGNATION</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <input name="des" placeholder="DESIGNATION" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group"> 
+  <label class="col-md-4 control-label">DUTY</label>
+    <div class="col-md-4 selectContainer">
+    <div class="input-group">
+    <select name="duty" class="form-control selectpicker" >
+      <option value="day">DAY DUTY</option>
+<option value="night" selected>NIGHT DUTY</option>
+</select>
+  </div>
+</div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" >SALARY</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <input name="sal" placeholder="SALARY" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4">
+  <input type="Submit" name="SUBMIT">
+  </div>
+</div>
+</fieldset>
+</form>
+
+</div>
+</body>
+</html>

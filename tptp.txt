@@ -1,0 +1,19 @@
+<div class="container" style="width:45%;margin-left: 400px;margin-top: 75px;border-radius: 15px; border:3;opacity:0.85;">
+
+table
+{
+border-collapse:collapse;
+}
+
+<table  border="4"  cellpadding="8" align="center" bordercolor="#C65000" style="text-align:center">
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    font-family:Garamond;
+}
